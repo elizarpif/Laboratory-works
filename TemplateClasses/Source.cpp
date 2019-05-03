@@ -4,10 +4,10 @@
 
 void Menu()
 {
-	cout << "[1] Äðîáè" << endl;
-	cout << "[2] Ìàòðèöû" << endl;
-	cout << "[3] Ïîëèíîì" << endl;
-	cout << "[4] Âûõîä" << endl<<">>";
+	cout << "[1] Ð”Ñ€Ð¾Ð±Ð¸" << endl;
+	cout << "[2] ÐœÐ°Ñ‚Ñ€Ð¸Ñ†Ñ‹" << endl;
+	cout << "[3] ÐŸÐ¾Ð»Ð¸Ð½Ð¾Ð¼" << endl;
+	cout << "[4] Ð’Ñ‹Ñ…Ð¾Ð´" << endl<<">>";
 	char ch;
 	cin >> ch;
 	switch (ch)
