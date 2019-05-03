@@ -26,18 +26,18 @@ struct Monom
 	{
 		return degree;
 	}
-	Monom operator+ (Monom op2)//одинаковые степени!!!
+	Monom operator+ (Monom op2)//РѕРґРёРЅР°РєРѕРІС‹Рµ СЃС‚РµРїРµРЅРё!!!
 	{
 		Monom tmp = op2;
 		tmp.coef = this->coef + op2.coef;
 		return tmp;
 	}
-	bool operator== (Monom op2)//одинаковые степени!!!
+	bool operator== (Monom op2)
 	{
 		if (this->degree == op2.degree) return true;
 		else return false;
 	}
-	Monom operator- (Monom op2)//одинаковые степени!!!
+	Monom operator- (Monom op2)
 	{
 		Monom tmp = op2;
 		tmp.coef = this->coef - op2.coef;
@@ -76,12 +76,12 @@ struct Monom
 		tmp.degree = 0;
 		return tmp;
 	}
-	bool operator< (Monom op2)//одинаковые степени!!!
+	bool operator< (Monom op2)
 	{
 		if (this->degree < op2.degree) return true;
 		else return false;
 	}
-	bool operator<= (Monom op2)//одинаковые степени!!!
+	bool operator<= (Monom op2)
 	{
 		if (this->degree <= op2.degree) return true;
 		else return false;
@@ -193,7 +193,7 @@ template<typename T>
 Polynom<T> Polynom<T>::operator+(Polynom<T> op2)
 {
 	Polynom temp;
-	if (this->degr >= op2.degr) //первый больше второго!
+	if (this->degr >= op2.degr) //РїРµСЂРІС‹Р№ Р±РѕР»СЊС€Рµ РІС‚РѕСЂРѕРіРѕ!
 	{
 		temp = *this;
 		auto longer = this->Node.begin();
@@ -215,7 +215,7 @@ Polynom<T> Polynom<T>::operator+(Polynom<T> op2)
 
 
 	}
-	else if (this->degr < op2.degr) //первый меньше второго!
+	else if (this->degr < op2.degr) //РїРµСЂРІС‹Р№ РјРµРЅСЊС€Рµ РІС‚РѕСЂРѕРіРѕ
 	{
 		temp = op2;
 		auto shorter = this->Node.begin();
@@ -244,7 +244,7 @@ template<typename T>
 Polynom<T> Polynom<T>::operator*(Polynom<T> op2)
 {
 	Polynom temp;
-	//каждый умножить с каждым
+	//РєР°Р¶РґС‹Р№ СѓРјРЅРѕР¶РёС‚СЊ СЃ РєР°Р¶РґС‹Рј
 	auto first = this->Node.begin();
 	for (first; first != this->Node.end(); first++)
 	{
@@ -255,7 +255,7 @@ Polynom<T> Polynom<T>::operator*(Polynom<T> op2)
 		}
 	}
 	temp.Node.sort([](const Monom<T> &a, const Monom<T> &b) { return a.degree > b.degree; });
-	//теперь надо избавиться от одностепенных
+	//С‚РµРїРµСЂСЊ РЅР°РґРѕ РёР·Р±Р°РІРёС‚СЊСЃСЏ РѕС‚ РѕРґРЅРѕСЃС‚РµРїРµРЅРЅС‹С…
 	Polynom add;
 	auto ik = temp.Node.begin();
 	auto it = temp.Node.begin();
@@ -263,7 +263,7 @@ Polynom<T> Polynom<T>::operator*(Polynom<T> op2)
 	{
 		if (ik != it)
 		{
-			if (*ik == *it)//если степени равны
+			if (*ik == *it)//РµСЃР»Рё СЃС‚РµРїРµРЅРё СЂР°РІРЅС‹
 			{
 				*ik = *it + *ik;
 				auto il = it;
@@ -305,7 +305,7 @@ Polynom<T> Polynom<T>::operator%(Polynom<T> op2)
 			catch (const std::exception&)
 			{
 				tmpMon = *it;
-				cout << "При делении что-то пошло не так" << endl;
+				cout << "РџСЂРё РґРµР»РµРЅРёРё С‡С‚Рѕ-С‚Рѕ РїРѕС€Р»Рѕ РЅРµ С‚Р°Рє" << endl;
 			}
 			Polynom<T> tempR = op2;
 			for (auto jt = tempR.Node.begin(); jt != tempR.Node.end(); jt++)
@@ -347,12 +347,12 @@ Polynom<T> Polynom<T>::operator/(Polynom<T> op2)
 					tmpMon = *it;
 					if (a == 123)
 					{
-						cout << "Деление матриц не приветствуется!" << endl;
+						cout << "Р”РµР»РµРЅРёРµ РјР°С‚СЂРёС† РЅРµ РїСЂРёРІРµС‚СЃС‚РІСѓРµС‚СЃСЏ!" << endl;
 						return newPolynom;
 					}
 					if (a == 124)
 					{
-						cout << "Деление на 0 не приветствуется!" << endl;
+						cout << "Р”РµР»РµРЅРёРµ РЅР° 0 РЅРµ РїСЂРёРІРµС‚СЃС‚РІСѓРµС‚СЃСЏ!" << endl;
 						return newPolynom;
 					}
 				}
@@ -381,7 +381,7 @@ Polynom<T> Polynom<T>::operator-(Polynom<T> op2)
 {
 	Polynom temp;
 	Monom<T> t1,t2;
-	if (this->Node.size() >= op2.Node.size()) //первый больше второго!
+	if (this->Node.size() >= op2.Node.size()) 
 	{
 		temp = *this;
 		auto longer = this->Node.begin();
@@ -402,7 +402,7 @@ Polynom<T> Polynom<T>::operator-(Polynom<T> op2)
 			longer++;
 		}
 	}
-	else if (this->Node.size() < op2.Node.size()) //первый меньше второго!
+	else if (this->Node.size() < op2.Node.size()) 
 	{
 		temp = op2;
 		auto shorter = this->Node.begin();
@@ -435,10 +435,10 @@ istream &operator>>(istream &s, Polynom<T> &ob)
 	try
 	{
 		ob.Node.clear();
-		cout << "Введите максимальную степень полинома: ";
+		cout << " ";
 		s >> degr;
 		//ob.degr;
-		cout << "Введите коэффииенты: ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёРёРµРЅС‚С‹: ";
 		ClearCin();
 		for (int i = degr; i >=0; i--)
 		{
@@ -478,7 +478,7 @@ ostream &operator<<(ostream &s, const Polynom<T> &ob)
 
 
 template<typename T>
-void diffenencial(Polynom<T> ob) //дифференциал
+void diffenencial(Polynom<T> ob) //РґРёС„С„РµСЂРµРЅС†РёР°Р»
 {
 	Monom<T> mon;
 	for (auto it = ob.Node.begin(); it != ob.Node.end(); it++)
@@ -501,7 +501,7 @@ void diffenencial(Polynom<T> ob) //дифференциал
 }
 
 template<typename T>
-void superpos(Polynom<T> ob1, Polynom<T> ob2) //суперпозиция
+void superpos(Polynom<T> ob1, Polynom<T> ob2) //СЃСѓРїРµСЂРїРѕР·РёС†РёСЏ
 {
 	for (auto it = ob1.Node.begin(); it != ob1.Node.end(); it++)
 	{
@@ -523,7 +523,7 @@ void superpos(Polynom<T> ob1, Polynom<T> ob2) //суперпозиция
 
 
 template<typename T>
-void znach(Polynom<T> ob, int ch) //значение полинома в точке
+void znach(Polynom<T> ob, int ch) //Р·РЅР°С‡РµРЅРёРµ РїРѕР»РёРЅРѕРјР° РІ С‚РѕС‡РєРµ
 {
 	T tmp;
 	for (auto it = ob.Node.begin(); it != ob.Node.end(); it++)
@@ -593,18 +593,18 @@ void subMenuPoli(Polynom<T> &a, Polynom<T> &b)
 {
 	string choice;
 	ClearCin();
-	cout << "\n\nТекущие полиномы: " << a << "\n\nand\n\n " << b << endl << endl;
-	cout << "[1] Ввести полиномы заново" << endl;
-	cout << "[2] Сложение " << endl;
-	cout << "[3] Вычитание " << endl;
-	cout << "[4] Умножение " << endl;
-	cout << "[5] Деление " << endl;
-	cout << "[6] Деление по модулю " << endl;
-	cout << "[7] Дифференциал " << endl;
-	cout << "[8] Суперпозиция" << endl;
-	cout << "[9] Значение в точке " << endl;
-	cout << "[10] Очистить экран " << endl;
-	cout << "[11] Вернуться на уровень назад " << endl;
+	cout << "\n\nРўРµРєСѓС‰РёРµ РїРѕР»РёРЅРѕРјС‹: " << a << "\n\nand\n\n " << b << endl << endl;
+	cout << "[1] Р’РІРµСЃС‚Рё РїРѕР»РёРЅРѕРјС‹ Р·Р°РЅРѕРІРѕ" << endl;
+	cout << "[2] РЎР»РѕР¶РµРЅРёРµ " << endl;
+	cout << "[3] Р’С‹С‡РёС‚Р°РЅРёРµ " << endl;
+	cout << "[4] РЈРјРЅРѕР¶РµРЅРёРµ " << endl;
+	cout << "[5] Р”РµР»РµРЅРёРµ " << endl;
+	cout << "[6] Р”РµР»РµРЅРёРµ РїРѕ РјРѕРґСѓР»СЋ " << endl;
+	cout << "[7] Р”РёС„С„РµСЂРµРЅС†РёР°Р» " << endl;
+	cout << "[8] РЎСѓРїРµСЂРїРѕР·РёС†РёСЏ" << endl;
+	cout << "[9] Р—РЅР°С‡РµРЅРёРµ РІ С‚РѕС‡РєРµ " << endl;
+	cout << "[10] РћС‡РёСЃС‚РёС‚СЊ СЌРєСЂР°РЅ " << endl;
+	cout << "[11] Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СѓСЂРѕРІРµРЅСЊ РЅР°Р·Р°Рґ " << endl;
 	cout << ">> ";
 	cin >> choice;
 	if (choice[0] - '0' > 1 && choice[0] - '0' < 7 && choice.length() == 1)
@@ -613,7 +613,7 @@ void subMenuPoli(Polynom<T> &a, Polynom<T> &b)
 		if (index == 1 || index == 3 || index == 4)
 		{
 
-			cout << "Выберите нужный полином (1 или 2)" << endl << ">> ";
+			cout << "Р’С‹Р±РµСЂРёС‚Рµ РЅСѓР¶РЅС‹Р№ РїРѕР»РёРЅРѕРј (1 РёР»Рё 2)" << endl << ">> ";
 			char ch;
 			cin >> ch;
 			if (ch == '1')
@@ -630,15 +630,15 @@ void subMenuPoli(Polynom<T> &a, Polynom<T> &b)
 		cout << endl;
 		system("pause");
 	}
-	else if (choice == "1") //новые значения
+	else if (choice == "1") //РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
 	{
 		cin >> a;
 		cin >> b;
 		//cout << endl;
 	}
-	else if (choice == "7") //дифференциал
+	else if (choice == "7") //diff
 	{
-		cout << "Выберите нужный полином (1 или 2)" << endl << ">> ";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РЅСѓР¶РЅС‹Р№ РїРѕР»РёРЅРѕРј (1 РёР»Рё 2)" << endl << ">> ";
 		char ch;
 		cin >> ch;
 		if (ch == '1')
@@ -652,18 +652,18 @@ void subMenuPoli(Polynom<T> &a, Polynom<T> &b)
 		cout << endl;
 		system("pause");
 	}
-	else if (choice == "8") //суперпозиция
+	else if (choice == "8") //СЃСѓРїРµСЂРїРѕР·РёС†РёСЏ
 	{
 		superpos(a, b);
 		cout << endl;
 		system("pause");
 	}
-	else if (choice == "9") //значение в точке
+	else if (choice == "9") //Р·РЅР°С‡РµРЅРёРµ РІ С‚РѕС‡РєРµ
 	{
-		cout << "Выберите нужный полином (1 или 2)" << endl << ">> ";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РЅСѓР¶РЅС‹Р№ РїРѕР»РёРЅРѕРј (1 РёР»Рё 2)" << endl << ">> ";
 		char ch;
 		cin >> ch;
-		cout << "Укажите точку (натуральное число)" << endl << ">> ";
+		cout << "РЈРєР°Р¶РёС‚Рµ С‚РѕС‡РєСѓ (РЅР°С‚СѓСЂР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ)" << endl << ">> ";
 		int x;
 		cin >> x;
 		if (ch == '1')
@@ -677,7 +677,7 @@ void subMenuPoli(Polynom<T> &a, Polynom<T> &b)
 		cout << endl;
 		system("pause");
 	}
-	else if (choice == "10") //новые значения
+	else if (choice == "10") //РѕС‡РёСЃС‚РёС‚СЊ СЌРєСЂР°РЅ
 	{
 		system("cls");
 	}
@@ -690,19 +690,19 @@ void subMenuPoli(Polynom<T> &a, Polynom<T> &b)
 void MenuPoli()
 {
 	char c;
-	cout << "[1] Полином из целых чисел " << endl;
-	cout << "[2] Полином из чисел с плавающей точкой " << endl;
-	cout << "[3] Полином из целочисленных матриц " << endl;
-	cout << "[4] Полином из матриц, состоящих из чисел с плавающей точкой " << endl;
-	cout << "[5] Полином из матриц, состоящих из целочисленных дробей " << endl;
-	cout << "[6] Полином из матриц, состоящих из дробей, состоящих из чисел с плавающей точкой " << endl;
-	cout << "[7] Полином из целочисленных дробей" << endl;
-	cout << "[8] Полином из дробей, состоящих из чисел с плавающей точкой" << endl;
-	cout << "[9] Вернуться на уровень назад" << endl;
+	cout << "[1] РџРѕР»РёРЅРѕРј РёР· С†РµР»С‹С… С‡РёСЃРµР» " << endl;
+	cout << "[2] РџРѕР»РёРЅРѕРј РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ " << endl;
+	cout << "[3] РџРѕР»РёРЅРѕРј РёР· С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РјР°С‚СЂРёС† " << endl;
+	cout << "[4] РџРѕР»РёРЅРѕРј РёР· РјР°С‚СЂРёС†, СЃРѕСЃС‚РѕСЏС‰РёС… РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ " << endl;
+	cout << "[5] РџРѕР»РёРЅРѕРј РёР· РјР°С‚СЂРёС†, СЃРѕСЃС‚РѕСЏС‰РёС… РёР· С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РґСЂРѕР±РµР№ " << endl;
+	cout << "[6] РџРѕР»РёРЅРѕРј РёР· РјР°С‚СЂРёС†, СЃРѕСЃС‚РѕСЏС‰РёС… РёР· РґСЂРѕР±РµР№, СЃРѕСЃС‚РѕСЏС‰РёС… РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ " << endl;
+	cout << "[7] РџРѕР»РёРЅРѕРј РёР· С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РґСЂРѕР±РµР№" << endl;
+	cout << "[8] РџРѕР»РёРЅРѕРј РёР· РґСЂРѕР±РµР№, СЃРѕСЃС‚РѕСЏС‰РёС… РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№" << endl;
+	cout << "[9] Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СѓСЂРѕРІРµРЅСЊ РЅР°Р·Р°Рґ" << endl;
 	cout << ">> ";
 	cin >> c;
 	ClearCin();
-	cout << "Вы ввели " << c << endl;
+	cout << "Р’С‹ РІРІРµР»Рё " << c << endl;
 	if (c - '0' > 0 && c - '0' < 9)
 	{
 		switch (c)
