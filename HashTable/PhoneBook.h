@@ -35,7 +35,7 @@ ostream & operator<<(ostream & os, const phoneBook & rec)
 
 istream& operator>> (istream &is, phoneBook &rec)
 {
-	cout << "Введите имя, фамилию, телефон, email, компанию, должность: ";
+	cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ, С„Р°РјРёР»РёСЋ, С‚РµР»РµС„РѕРЅ, email, РєРѕРјРїР°РЅРёСЋ, РґРѕР»Р¶РЅРѕСЃС‚СЊ: ";
 	is >> rec.name >> rec.last_name >> rec.phone >> rec.email>>rec.company>>rec.dolsh;
 	return is;
 }
@@ -45,7 +45,7 @@ istream& operator>> (istream &is, phoneBook &rec)
 
 
 
-ULL Hash(string str) //хеш-функция для телефонной книги
+ULL Hash(string str) 
 {
 	ULL sum = 0;
 	for (int i = 0; i < str.length(); i++)
@@ -58,7 +58,7 @@ ULL Hash(string str) //хеш-функция для телефонной книги
 
 
 
-ULL Hash(phoneBook str) //хеш-функция для строк
+ULL Hash(phoneBook str) 
 {
 	ULL sum = 0;
 	for (int i = 0; i < str.email.length(); i++)
