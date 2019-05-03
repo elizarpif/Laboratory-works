@@ -74,7 +74,7 @@ public:
 	friend void SearchArg(HashTable<phoneBook> hashT, string str, int arg);
 };
 
-void OpenFile(HashTable<phoneBook> &h)//открытие файла, спецификация под структур
+void OpenFile(HashTable<phoneBook> &h)//РѕС‚РєСЂС‹С‚РёРµ С„Р°Р№Р»Р°, СЃРїРµС†РёС„РёРєР°С†РёСЏ РїРѕРґ СЃС‚СЂСѓРєС‚СѓСЂСѓ
 {
 	ifstream F(h.getFileName(), ios::in);
 
@@ -90,7 +90,7 @@ void OpenFile(HashTable<phoneBook> &h)//открытие файла, спецификация под структу
 }
 
 TEMPL
-void OpenFile(HashTable<Tvalue> &h) //открытие файла
+void OpenFile(HashTable<Tvalue> &h) //РѕС‚РєСЂС‹С‚РёРµ С„Р°Р№Р»Р°
 {
 	ifstream F(h.getFileName(), ios::in);
 
@@ -108,7 +108,7 @@ void OpenFile(HashTable<Tvalue> &h) //открытие файла
 
 
 TEMPL
-ostream & operator<<(ostream & os, const HashTable<Tvalue>& rec) //вывод таблицы
+ostream & operator<<(ostream & os, const HashTable<Tvalue>& rec) //РІС‹РІРѕРґ С‚Р°Р±Р»РёС†С‹
 {
 	for (auto it = rec.hash_table.begin(); it != rec.hash_table.end(); ++it)
 	{
@@ -123,7 +123,7 @@ ostream & operator<<(ostream & os, const HashTable<Tvalue>& rec) //вывод таблицы
 	return os;
 }
 
-//для структуры
+//РґР»СЏ СЃС‚СЂСѓРєС‚СѓСЂС‹
 void SearchArg(HashTable<phoneBook> hashT, string str, int arg)
 {
 	auto ptr = hashT.hash_table.begin();
@@ -156,7 +156,7 @@ void SearchArg(HashTable<phoneBook> hashT, string str, int arg)
 			}
 			if (found != -1)
 			{
-				cout << "Запись найдена" << endl;
+				cout << "Г‡Г ГЇГЁГ±Гј Г­Г Г©Г¤ГҐГ­Г " << endl;
 				cout << (*it) << endl;
 			}
 					
@@ -166,7 +166,7 @@ void SearchArg(HashTable<phoneBook> hashT, string str, int arg)
 }
 
 TEMPL
-void SearchArg(HashTable<Tvalue> hashT, string str) //стандартный поиск
+void SearchArg(HashTable<Tvalue> hashT, string str) //СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РїРѕРёСЃРє
 {
 	auto ptr = hashT.hash_table.begin();
 	for (ptr; ptr != hashT.hash_table.end(); ptr++)
@@ -180,7 +180,7 @@ void SearchArg(HashTable<Tvalue> hashT, string str) //стандартный поиск
 			
 			if (found != -1)
 			{
-				cout << "Запись найдена" <<endl;
+				cout << "Р—Р°РїРёСЃСЊ РЅР°Р№РґРµРЅР°" <<endl;
 				cout << (*it) << endl;
 			}
 
@@ -193,9 +193,9 @@ void SearchArg(HashTable<Tvalue> hashT, string str) //стандартный поиск
 
 
 TEMPL
-void HashTable<Tvalue>::Insert( ULL key, Tvalue &value) //вставка записи
+void HashTable<Tvalue>::Insert( ULL key, Tvalue &value) //РІСЃС‚Р°РІРєР° Р·Р°РїРёСЃРё
 {
-	//для начала есть ли такой ключ?
+	//РґР»СЏ РЅР°С‡Р°Р»Р° РµСЃС‚СЊ Р»Рё С‚Р°РєРѕР№ РєР»СЋС‡?
 	auto ptr = find_if(hash_table.begin(), hash_table.end(), 
 		[&key](const pair<ULL, list<Tvalue>>&p)
 	{
@@ -227,7 +227,7 @@ void HashTable<Tvalue>::Insert( ULL key, Tvalue &value) //вставка записи
 		(*ptr) = p;
 		//l.sort();		
 	}
-	else //если ключ был не найден
+	else //РµСЃР»Рё РєР»СЋС‡ Р±С‹Р» РЅРµ РЅР°Р№РґРµРЅ
 	{
 		list<Tvalue> l;
 		l.push_back(value);
@@ -246,7 +246,7 @@ void HashTable<Tvalue>::Insert( ULL key, Tvalue &value) //вставка записи
 }
 
 TEMPL
-void HashTable<Tvalue>::Change(ULL key) //изменение записи
+void HashTable<Tvalue>::Change(ULL key) //РёР·РјРµРЅРµРЅРёРµ Р·Р°РїРёСЃРё
 {
 	auto ptr = hash_table.begin();
 	for (ptr; ptr != hash_table.end(); ptr++)
@@ -261,7 +261,7 @@ void HashTable<Tvalue>::Change(ULL key) //изменение записи
 			int num=i;		
 			while (abs(num) > i)
 			{
-				cout <<endl<< "укажите номер записи, которую необходимо заменить: ";
+				cout <<endl<< "РЈРєР°Р¶РёС‚Рµ РЅРѕРјРµСЂ Р·Р°РїРёСЃРё, РєРѕС‚РѕСЂСѓСЋ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РјРµРЅРёС‚СЊ: ";
 				cin >> num;
 				if (num == 0)
 				{
@@ -298,7 +298,7 @@ void HashTable<Tvalue>::Change(ULL key) //изменение записи
 				ptr = tmp;
 			}
 			Tvalue val;
-			cout << "Введите новое значение: ";
+			cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ ";
 			cin >> val;
 			
 			this->Insert(Hash(val), val);
@@ -311,10 +311,10 @@ void HashTable<Tvalue>::Change(ULL key) //изменение записи
 }
 
 TEMPL
-void UndoHist(HashTable<Tvalue> &hashT, int h)//h - кол-во последних записей
+void UndoHist(HashTable<Tvalue> &hashT, int h)//h - РєРѕР»-РІРѕ РїРѕСЃР»РµРґРЅРёС… Р·Р°РїРёСЃРµР№
 {
 
-	if (h <= hashT.history) //нельзя дальше текущего
+	if (h <= hashT.history) //РЅРµР»СЊР·СЏ РґР°Р»СЊС€Рµ С‚РµРєСѓС‰РµРіРѕ
 	{
 		int temp;
 		int i = 0;
@@ -324,7 +324,7 @@ void UndoHist(HashTable<Tvalue> &hashT, int h)//h - кол-во последних записей
 			int cur = hashT.history - i;
 			temp = hashT.masHist[cur];
 
-			if (temp == 1)//вставка
+			if (temp == 1)//РІСЃС‚Р°РІРєР°
 			{
 				for (auto ptr = hashT.hash_table.begin(); ptr != hashT.hash_table.end(); ++ptr)
 				{
@@ -334,7 +334,7 @@ void UndoHist(HashTable<Tvalue> &hashT, int h)//h - кол-во последних записей
 						auto it = l.begin();
 						while (it != l.end())
 						{
-							//нашли элемент!!!
+							//РЅР°С€Р»Рё СЌР»РµРјРµРЅС‚!!!
 							if ((*it) == hashT.lastStep[cur].second)
 							{
 								it = l.erase(it);
@@ -356,7 +356,7 @@ void UndoHist(HashTable<Tvalue> &hashT, int h)//h - кол-во последних записей
 				}
 
 			}
-			else if (temp == 2)//удаление, значит надо вставить
+			else if (temp == 2)//СѓРґР°Р»РµРЅРёРµ, Р·РЅР°С‡РёС‚ РЅР°РґРѕ РІСЃС‚Р°РІРёС‚СЊ
 			{
 				auto ptr = hashT.hash_table.begin();
 				for (ptr; ptr != hashT.hash_table.end(); ++ptr)
@@ -384,7 +384,7 @@ void UndoHist(HashTable<Tvalue> &hashT, int h)//h - кол-во последних записей
 						auto it = l.begin();
 						while (it != l.end())
 						{
-							//нашли элемент!!!
+							//РЅР°С€Р»Рё СЌР»РµРјРµРЅС‚!!!
 							if ((*it) == hashT.lastStep[cur + 1].second)
 							{
 								it = l.erase(it);
