@@ -12,7 +12,7 @@ long double check(int r);
 
 void ClearCin()
 { 
-	//функция для очистки ввода
+	//С„СѓРЅРєС†РёСЏ РґР»СЏ РѕС‡РёСЃС‚РєРё РІРІРѕРґР°
 	cin.clear();
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
@@ -25,7 +25,7 @@ class Frac
 public:
 	Frac() : num(0), denom(0) {};
 	Frac(T n1, T d1) : num(n1), denom(d1) {};
-	void reduction();//сокращение
+	void reduction();//СЃРѕРєСЂР°С‰РµРЅРёРµ
 
 	template<typename T>
 	friend ostream &operator<<(ostream &s, const Frac<T> &f);
@@ -89,7 +89,7 @@ public:
 		t.denom = denom * op2;
 		if (t.denom == 0)
 		{
-			cout << "Error! / 0. Знаменатель будет заменен на '1'" << endl;
+			cout << "Error! / 0. Р—РЅР°РјРµРЅР°С‚РµР»СЊ Р±СѓРґРµС‚ Р·Р°РјРµРЅРµРЅ РЅР° '1'" << endl;
 			t.denom = 1;
 		}
 		t.num = num;
@@ -142,7 +142,7 @@ public:
 		t.denom = denom * op2.num;
 		if (t.denom == 0)
 		{
-			cout << "Error! / 0. Знаменатель будет заменен на '1'" << endl;
+			cout << "Error! / 0. Р—РЅР°РјРµРЅР°С‚РµР»СЊ Р±СѓРґРµС‚ Р·Р°РјРµРЅРµРЅ РЅР° '1'" << endl;
 			t.denom = 1;
 		}
 		if (t.num != 0) t.reduction();
@@ -176,7 +176,7 @@ istream &operator>>(istream &s,  Frac<T> &f)
 	
 	s >> tmp;
 	
-	//если ввеенное число оказалось 0, то зануляем
+	//РµСЃР»Рё РІРІРµРґРµРЅРЅРѕРµ С‡РёСЃР»Рѕ РѕРєР°Р·Р°Р»РѕСЃСЊ 0, С‚Рѕ Р·Р°РЅСѓР»СЏРµРј
 	if (tmp == 0)
 	{
 		f.num = 0;
@@ -196,25 +196,25 @@ istream &operator>>(istream &s,  Frac<T> &f)
 }
 
 template<typename T>
-void Frac<T>::reduction() //сокращение дробей
+void Frac<T>::reduction() //СЃРѕРєСЂР°С‰РµРЅРёРµ РґСЂРѕР±РµР№
 {
 	T n= abs(num), den = abs(denom);
-	while (n != den) //пока числитель не равен знаменателю
+	while (n != den) //РїРѕРєР° С‡РёСЃР»РёС‚РµР»СЊ РЅРµ СЂР°РІРµРЅ Р·РЅР°РјРµРЅР°С‚РµР»СЋ
 	{
 		if (n > den) n = n - den;
 		else den = den - n;
 	}
 
-	//нашли число, на которое можно сократить, сокращаем
+	//РЅР°С€Р»Рё С‡РёСЃР»Рѕ, РЅР° РєРѕС‚РѕСЂРѕРµ РјРѕР¶РЅРѕ СЃРѕРєСЂР°С‚РёС‚СЊ, СЃРѕРєСЂР°С‰Р°РµРј
 	num /= n;
 	denom /= n;
 	
-	if (num < 0 && denom<0) //если числитель и знаменатель меньше нуля
+	if (num < 0 && denom<0) //РµСЃР»Рё С‡РёСЃР»РёС‚РµР»СЊ Рё Р·РЅР°РјРµРЅР°С‚РµР»СЊ РјРµРЅСЊС€Рµ РЅСѓР»СЏ
 	{
 		num *= -1;
 		denom *= -1;
 	}
-	else if (denom < 0)//знаменатель меньше нуля
+	else if (denom < 0)//Р·РЅР°РјРµРЅР°С‚РµР»СЊ РјРµРЅСЊС€Рµ РЅСѓР»СЏ
 	{
 		denom *= (-1);
 	}
@@ -265,14 +265,14 @@ void menuOperFrac(Frac<T> &a, Frac<T> &b)
 	Frac<T> result;
 	char c;
 	ClearCin();
-	cout << "\n\nТекущие дроби: " << a << ", " << b << endl<<endl;
-	cout << "[1] Ввести дроби заново" << endl;
-	cout << "[2] Сложение дробей" << endl;
-	cout << "[3] Вычитание дробей" << endl;
-	cout << "[4] Умножение дробей" << endl;
-	cout << "[5] Деление дробей" << endl;
-	cout << "[6] Очистить экран " << endl;
-	cout << "[7] Вернуться на уровень назад " << endl;
+	cout << "\n\nРўРµРєСѓС‰РёРµ РґСЂРѕР±Рё: " << a << ", " << b << endl<<endl;
+	cout << "[1] Р’РІРµСЃС‚Рё РґСЂРѕР±Рё Р·Р°РЅРѕРІРѕ" << endl;
+	cout << "[2] РЎР»РѕР¶РµРЅРёРµ РґСЂРѕР±РµР№" << endl;
+	cout << "[3] Р’С‹С‡РёС‚Р°РЅРёРµ РґСЂРѕР±РµР№" << endl;
+	cout << "[4] РЈРјРЅРѕР¶РµРЅРёРµ РґСЂРѕР±РµР№" << endl;
+	cout << "[5] Р”РµР»РµРЅРёРµ РґСЂРѕР±РµР№" << endl;
+	cout << "[6] РћС‡РёСЃС‚РёС‚СЊ СЌРєСЂР°РЅ " << endl;
+	cout << "[7] Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СѓСЂРѕРІРµРЅСЊ РЅР°Р·Р°Рґ " << endl;
 	cout << ">> ";
 	cin >> c;
 	if (c - '0' > 1 && c - '0' < 6)
@@ -285,9 +285,9 @@ void menuOperFrac(Frac<T> &a, Frac<T> &b)
 	}
 	else if (c - '0' == 1)
 	{
-		cout << "Введите дробь: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґСЂРѕР±СЊ: ";
 		cin >> a;
-		cout << "Введите дробь: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґСЂРѕР±СЊ: ";
 		cin >> b;
 	}
 	else if (c - '0' == 6)
@@ -302,26 +302,26 @@ void menuOperFrac(Frac<T> &a, Frac<T> &b)
 void menuFrac()
 {
 	char c;
-	cout << "[1] Целочисленная дробь " << endl;
-	cout << "[2] Дробь из чисел с плавающей точкой " << endl;
-	cout << "[3] Вернуться на уровень назад" << endl;
+	cout << "[1] Р¦РµР»РѕС‡РёСЃР»РµРЅРЅР°СЏ РґСЂРѕР±СЊ " << endl;
+	cout << "[2] Р”СЂРѕР±СЊ РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ " << endl;
+	cout << "[3] Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СѓСЂРѕРІРµРЅСЊ РЅР°Р·Р°Рґ" << endl;
 	cout << ">> ";
 	cin >> c;
 	ClearCin();
-	//cout << "Вы ввели " << c << endl;
+	
 	if (c == '1')
 	{
-		cout << "Введите дробь: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґСЂРѕР±СЊ: ";
 		cin >> FracInt1;
-		cout << "Введите дробь: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґСЂРѕР±СЊ: ";
 		cin >> FracInt2;
 		menuOperFrac(FracInt1, FracInt2);
 	}
 	else if (c == '2')
 	{
-		cout << "Введите дробь: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґСЂРѕР±СЊ: ";
 		cin >> FracFloat1;
-		cout << "Введите дробь: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґСЂРѕР±СЊ: ";
 		cin >> FracFloat2;
 		menuOperFrac(FracFloat1, FracFloat2);
 	}
