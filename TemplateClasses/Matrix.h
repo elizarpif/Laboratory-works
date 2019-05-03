@@ -1,7 +1,7 @@
 #pragma once
 #include "Fraction.h"
 #define MSIZE 3
-//функция для перемен мест в неквадратной матрицы
+//С„СѓРЅРєС†РёСЏ РґР»СЏ РїРµСЂРµРјРµРЅ РјРµСЃС‚ РІ РЅРµРєРІР°РґСЂР°С‚РЅРѕР№ РјР°С‚СЂРёС†С‹
 void swap_obr(vector<vector<double>> a, int p, int n, int m);
 
 
@@ -68,27 +68,27 @@ public:
 	template<typename T, int n>
 	friend istream &operator>>(istream &s, Matrix<T, n> &m);
 
-	T getVector() //получить текущий вектор
+	T getVector() //РїРѕР»СѓС‡РёС‚СЊ С‚РµРєСѓС‰РёР№ РІРµРєС‚РѕСЂ
 	{
 		return Matr;
 	}
 
-	int getSize() //получить текущее значение
+	int getSize() //РїРѕР»СѓС‡РёС‚СЊ С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ
 	{
 		return row;
 	}
 
 	template<typename T, int n>
-	friend T determin(Matrix<T, n> m); //определитель
+	friend T determin(Matrix<T, n> m); //РѕРїСЂРµРґРµР»РёС‚РµР»СЊ
 
 	template<int n>
-	friend int determin(Matrix<int, n> m); //спецификация шаблона для интовых значений
+	friend int determin(Matrix<int, n> m); //СЃРїРµС†РёС„РёРєР°С†РёСЏ С€Р°Р±Р»РѕРЅР° РґР»СЏ РёРЅС‚РѕРІС‹С… Р·РЅР°С‡РµРЅРёР№
 
 	template<int n>
-	friend Matrix<double, n> obr_matrix(Matrix<int, n> m, int det); //обратная матрица, спецификация
+	friend Matrix<double, n> obr_matrix(Matrix<int, n> m, int det); //РѕР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°, СЃРїРµС†РёС„РёРєР°С†РёСЏ
 
 	template<typename T, int n>
-	friend Matrix<T, n> obr_matrix(Matrix<T, n> m, T det); //обратная матрица
+	friend Matrix<T, n> obr_matrix(Matrix<T, n> m, T det); //РѕР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°
 };
 
 template<typename T, int n>
@@ -96,7 +96,7 @@ Matrix<T, n> Matrix<T, n>::operator+ (Matrix<T, n> op2)
 {
 	Matrix<T, n> temp;
 	temp = op2;
-	//одинаковые размеры
+	//РѕРґРёРЅР°РєРѕРІС‹Рµ СЂР°Р·РјРµСЂС‹
 	for (int i = 0; i < row; i++)
 	{
 		for (int j = 0; j < row; j++)
@@ -112,7 +112,7 @@ Matrix<T, n> Matrix<T, n>::operator- (Matrix<T, n> op2)
 {
 	Matrix<T, n> temp;
 	temp = op2;
-	//одинаковые размеры
+	//РѕРґРёРЅР°РєРѕРІС‹Рµ СЂР°Р·РјРµСЂС‹
 	for (int i = 0; i < row; i++)
 	{
 		for (int j = 0; j < row; j++)
@@ -123,7 +123,7 @@ Matrix<T, n> Matrix<T, n>::operator- (Matrix<T, n> op2)
 	return temp;
 }
 template<typename T, int n>
-Matrix<T, n> Matrix<T, n>::operator* (Matrix<T, n> op2) //перегрузка умножения
+Matrix<T, n> Matrix<T, n>::operator* (Matrix<T, n> op2) //РїРµСЂРµРіСЂСѓР·РєР° СѓРјРЅРѕР¶РµРЅРёСЏ
 {
 	Matrix temp = op2;
 	T sum, rus, tmp;
@@ -146,7 +146,7 @@ Matrix<T, n> Matrix<T, n>::operator* (Matrix<T, n> op2) //перегрузка умножения
 	return temp;
 }
 template<typename T, int n>
-Matrix<T, n> Matrix<T, n>::operator* (int op2) //умножение на число
+Matrix<T, n> Matrix<T, n>::operator* (int op2) //СѓРјРЅРѕР¶РµРЅРёРµ РЅР° С‡РёСЃР»Рѕ
 {
 	T sum, rus, tmp;
 	sum = 0;
@@ -166,8 +166,8 @@ Matrix<T, n> Matrix<T, n>::operator* (int op2) //умножение на число
 template<typename T, int n>
 Matrix<T, n> Matrix<T, n>::operator/ (Matrix<T, n> op2)
 {
-	//деление матриц не приветствуется, так как деление  - это умножение на обратную, и как такого
-	//термина деление не существует. Если же будет исключительная ситуация,деление вернет исходную матрицу
+	//РґРµР»РµРЅРёРµ РјР°С‚СЂРёС† РЅРµ РїСЂРёРІРµС‚СЃС‚РІСѓРµС‚СЃСЏ, С‚Р°Рє РєР°Рє РґРµР»РµРЅРёРµ - СЌС‚Рѕ СѓРјРЅРѕР¶РµРЅРёРµ РЅР° РѕР±СЂР°С‚РЅСѓСЋ, Рё РєР°Рє С‚Р°РєРѕРіРѕ
+	//С‚РµСЂРјРёРЅР° РґРµР»РµРЅРёРµ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. Р•СЃР»Рё Р¶Рµ Р±СѓРґРµС‚ РёСЃРєР»СЋС‡РёС‚РµР»СЊРЅР°СЏ СЃРёС‚СѓР°С†РёСЏ,РґРµР»РµРЅРёРµ РІРµСЂРЅРµС‚ РёСЃС…РѕРґРЅСѓСЋ РјР°С‚СЂРёС†Сѓ
 	throw 123;
 	//return *this;
 }
@@ -176,11 +176,11 @@ Matrix<T, n> Matrix<T, n>::operator/ (Matrix<T, n> op2)
 template<typename T, int n>
 istream &operator>>(istream &s,  Matrix<T,n> &m)
 {
-	//ввод матрицы
+	//РІРІРѕРґ РјР°С‚СЂРёС†С‹
 	T temp;
 	try
 	{
-		cout << "Введите матрицу (с пробелами и переносами строки)" << endl;
+		cout << "Р’РІРµРґРёС‚Рµ РјР°С‚СЂРёС†Сѓ (СЃ РїСЂРѕР±РµР»Р°РјРё Рё РїРµСЂРµРЅРѕСЃР°РјРё СЃС‚СЂРѕРєРё)" << endl;
 		for (int i = 0; i < m.row; i++)
 		{
 			for (int j = 0; j < m.row; j++)
@@ -203,7 +203,7 @@ template<typename T, int n>
 ostream & operator<<(ostream & s, const Matrix<T, n>& m)
 {
 	cout << endl<<endl;
-	//вывод матрицы
+	//РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 	try
 	{
 		for (int i = 0; i < m.row; i++)
@@ -217,7 +217,7 @@ ostream & operator<<(ostream & s, const Matrix<T, n>& m)
 	}
 	catch (const exception&)
 	{
-		cout << "Проблема с размером матрицы" << endl;
+		cout << "РџСЂРѕР±Р»РµРјР° СЃ СЂР°Р·РјРµСЂРѕРј РјР°С‚СЂРёС†С‹" << endl;
 	}
 	return s;
 }
@@ -225,23 +225,23 @@ ostream & operator<<(ostream & s, const Matrix<T, n>& m)
 
 
 template<typename T, int n>
-T determin(Matrix<T, n> m) //определитель
+T determin(Matrix<T, n> m) //РѕРїСЂРµРґРµР»РёС‚РµР»СЊ
 {
 	int i, j, k, i_1, i_2, minus = 0, size = n;
 	T h, max, min, opr, tmp, tmp2;
 	opr = 1;
-	Matrix<T, n> ish = m; //исходную запоминаем
+	Matrix<T, n> ish = m; //РёСЃС…РѕРґРЅСѓСЋ Р·Р°РїРѕРјРёРЅР°РµРј
 	for (i = 0; i < size; i++)
 	{
 		tmp = m.Matr[i][i];
-		if (tmp == 0) //если текущий элемент 0
+		if (tmp == 0) //РµСЃР»Рё С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ 0
 		{
 			for (j = i + 1; j < size; j++)
 			{
 				tmp2 = m.Matr[j][i];
 				if (tmp2 != 0)
 				{
-					for (k = 0; k < size; k++) //меняем местами строки
+					for (k = 0; k < size; k++) //РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё СЃС‚СЂРѕРєРё
 					{
 						h = m.Matr[j][k];
 						m.Matr[j][k] = m.Matr[i][k];
@@ -253,13 +253,13 @@ T determin(Matrix<T, n> m) //определитель
 			}
 
 		}
-		if (tmp != 0) //если текущий элемент не равен 0
+		if (tmp != 0) //РµСЃР»Рё С‚РµРєСѓС‰РёР№ РЅРµ 0
 		{
 			for (k = i + 1; k < size; k++)
 			{
-				max = m.Matr[k][i]; //max - делимое, min -делитель
+				max = m.Matr[k][i]; //max - РґРµР»РёРјРѕРµ, min -РґРµР»РёС‚РµР»СЊ
 				min = m.Matr[i][i];
-				h = max / min; //делим, чтобы получить единички
+				h = max / min; //РґРµР»РёРј, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ РµРґРёРЅРёС‡РєРё
 				for (j = i; j < size; j++)
 				{
 					m.Matr[k][j] = m.Matr[k][j] - h * m.Matr[i][j];
@@ -289,13 +289,13 @@ T determin(Matrix<T, n> m) //определитель
 
 
 template<int n>
-int determin(Matrix<int, n> m) //спецификация для int
+int determin(Matrix<int, n> m) //СЃРїРµС†РёС„РёРєР°С†РёСЏ РґР»СЏ int
 {
 	int i, j, k, i_1, i_2, minus = 0, size = n;
 	double h, max, min, opr, tmp, tmp2;
 	opr = 1;
 	vector<vector<double>> tempMatr(n, vector<double>(n));
-	//создаем вектор
+	//СЃРѕР·РґР°РµРј РІРµРєС‚РѕСЂ
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < n; j++)
@@ -307,7 +307,7 @@ int determin(Matrix<int, n> m) //спецификация для int
 	for (i = 0; i < size; i++)
 	{
 		tmp = tempMatr[i][i];
-		if (tmp == 0) //если по гл диагонали 0
+		if (tmp == 0) //РµСЃР»Рё РїРѕ РіР» РґРёР°РіРѕРЅР°Р»Рё 0
 		{
 			for (j = i + 1; j < size; j++)
 			{
@@ -316,7 +316,7 @@ int determin(Matrix<int, n> m) //спецификация для int
 				{
 					for (k = 0; k < size; k++)
 					{
-						//меняем местами
+						//РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё
 						h = tempMatr[j][k];
 						tempMatr[j][k] = tempMatr[i][k];
 						tempMatr[i][k] = h;
@@ -327,12 +327,12 @@ int determin(Matrix<int, n> m) //спецификация для int
 			}
 
 		}
-		if (tmp != 0) //если не 0
+		if (tmp != 0) //РµСЃР»Рё РЅРµ 0
 		{
 			for (k = i + 1; k < size; k++)
 			{
-				max = tempMatr[k][i]; //max - делимое, min -делитель
-				min = tempMatr[i][i]; //делим на это число всю строку
+				max = tempMatr[k][i]; 
+				min = tempMatr[i][i]; //РґРµР»РёРј РЅР° СЌС‚Рѕ С‡РёСЃР»Рѕ РІСЃСЋ СЃС‚СЂРѕРєСѓ
 				h = max / min;
 				for (j = i; j < size; j++)
 					tempMatr[k][j] = tempMatr[k][j] - h * tempMatr[i][j];
@@ -363,12 +363,12 @@ int determin(Matrix<int, n> m) //спецификация для int
 }
 
 template<int n>
-Matrix<double, n> obr_matrix(Matrix<int, n> m, int det) //спецификация для целочисленной матрицы, так как результат будет другого типа
+Matrix<double, n> obr_matrix(Matrix<int, n> m, int det) //СЃРїРµС†РёС„РёРєР°С†РёСЏ РґР»СЏ С†РµР»РѕС‡РёСЃР»РµРЅРЅРѕР№ РјР°С‚СЂРёС†С‹, С‚Р°Рє РєР°Рє СЂРµР·СѓР»СЊС‚Р°С‚ Р±СѓРґРµС‚ РґСЂСѓРіРѕРіРѕ С‚РёРїР°
 {
 	int i = 0, j = 0, p=0;
 	if (det == 0)
 	{
-		cout << "Не существует обратной" << endl;
+		cout << "РќРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РѕР±СЂР°С‚РЅРѕР№" << endl;
 		Matrix<double, n> a;
 		return a;
 	}
@@ -379,7 +379,7 @@ Matrix<double, n> obr_matrix(Matrix<int, n> m, int det) //спецификация для целоч
 		for(j=0; j<n;j++) 
 			matrix_res[i][j] = m.Matr[i][j];
 	}
-	for ( i = 0; i < n; i++)//создаем единичную
+	for ( i = 0; i < n; i++)//СЃРѕР·РґР°РµРј РµРґРёРЅРёС‡РЅСѓСЋ
 	{
 		
 		for ( j = n; j < n*2; j++)
@@ -397,13 +397,13 @@ Matrix<double, n> obr_matrix(Matrix<int, n> m, int det) //спецификация для целоч
 	{
 		if (matrix_res[p][p] == 0)
 		{
-			//поменять местами строки
+			//РїРѕРјРµРЅСЏС‚СЊ РјРµСЃС‚Р°РјРё СЃС‚СЂРѕРєРё
 			swap_obr(matrix_res, p, n, n * 2);
 		}
-		res = matrix_res[p][p] / matrix_res[p][p]; //нам нужна 1, поэтому делим на число, стоящее на диагонали
-		cur = matrix_res[p][p]; //теперь запоминаем это число и делим всю строку
+		res = matrix_res[p][p] / matrix_res[p][p]; //РЅР°Рј РЅСѓР¶РЅР° 1, РїРѕСЌС‚РѕРјСѓ РґРµР»РёРј РЅР° С‡РёСЃР»Рѕ, СЃС‚РѕСЏС‰РµРµ РЅР° РґРёР°РіРѕРЅР°Р»Рё
+		cur = matrix_res[p][p]; //С‚РµРїРµСЂСЊ Р·Р°РїРѕРјРёРЅР°РµРј СЌС‚Рѕ С‡РёСЃР»Рѕ Рё РґРµР»РёРј РІСЃСЋ СЃС‚СЂРѕРєСѓ
 
-		for (j = p + 1; j < n*2; j++) //делим 
+		for (j = p + 1; j < n*2; j++) //РґРµР»РёРј
 			matrix_res[p][j] = matrix_res[p][j] / cur;
 		for (i = 0; i < n; i++)
 		{
@@ -411,7 +411,7 @@ Matrix<double, n> obr_matrix(Matrix<int, n> m, int det) //спецификация для целоч
 			{
 				for (j = p; j < n*2; j++)
 				{
-					if (j == p) //если совпало, меняем местами
+					if (j == p) //РµСЃР»Рё СЃРѕРІРїР°Р»Рѕ, РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё
 						karl = matrix_res[i][j];
 					roug = matrix_res[i][j] - karl * matrix_res[p][j];
 					matrix_res[i][j] = roug;
@@ -419,7 +419,7 @@ Matrix<double, n> obr_matrix(Matrix<int, n> m, int det) //спецификация для целоч
 			}
 		}
 	}
-	//правая часть, что получилас в результате  преобразований, и есть обратная матрица
+	//РїСЂР°РІР°СЏ С‡Р°СЃС‚СЊ, С‡С‚Рѕ РїРѕР»СѓС‡РёР»Р°СЃ РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёР№, Рё РµСЃС‚СЊ РѕР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°
 	Matrix<double, n> result;
 	for (i = 0; i < n; i++)
 	{
@@ -429,7 +429,7 @@ Matrix<double, n> obr_matrix(Matrix<int, n> m, int det) //спецификация для целоч
 	return result;
 }
 
-void swap_obr(vector<vector<double>> a, int p, int n, int m) //функция перестановки строк для целоичесленного случая
+void swap_obr(vector<vector<double>> a, int p, int n, int m) //С„СѓРЅРєС†РёСЏ РїРµСЂРµСЃС‚Р°РЅРѕРІРєРё СЃС‚СЂРѕРє РґР»СЏ С†РµР»РѕРёС‡РµСЃР»РµРЅРЅРѕРіРѕ СЃР»СѓС‡Р°СЏ
 {
 	double zer = a[p][p], cur;
 	int fl = p;
@@ -447,7 +447,7 @@ void swap_obr(vector<vector<double>> a, int p, int n, int m) //функция перестано
 	{
 		if (fl > p && zer != 0)
 		{
-			for (j = p; j < m; j++) //менем местами
+			for (j = p; j < m; j++) //РјРµРЅРµРј РјРµСЃС‚Р°РјРё
 			{
 				cur = a[p][j];
 				zer = a[fl][j];
@@ -466,15 +466,14 @@ template<typename T, int n>
 Matrix<T, n> obr_matrix(Matrix<T, n> m, T det)
 {
 	int i = 0, j = 0, p =  0;
-	if (det == 0) //вырожденная матрица
+	if (det == 0) //РІС‹СЂРѕР¶РґРµРЅРЅР°СЏ РјР°С‚СЂРёС†Р°
 	{
-		cout << "Не существует обратной" << endl;
+		cout << "РќРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РѕР±СЂР°С‚РЅРѕР№" << endl;
 		Matrix<T, n> result;
 		return result;
 	}
 	if (n == 2)
 	{ 
-		//для матрицы размером 2
 		Matrix<T, n> result = m;
 		result.Matr[0][0] = m.Matr[1][1]/det;
 		result.Matr[1][1] = m.Matr[0][0]/det;
@@ -485,29 +484,28 @@ Matrix<T, n> obr_matrix(Matrix<T, n> m, T det)
 	else
 	{
 		try{
-			vector<vector<T>> matrix_res(n, vector<T>(n * 2)); //метод - присоединяем справа матрицу и Гауссом находим обратную
-			for (i = 0; i < n; i++)
+			vector<vector<T>> matrix_res(n, vector<T>(n * 2)); //РјРµС‚РѕРґ - РїСЂРёСЃРѕРµРґРёРЅСЏРµРј СЃРїСЂР°РІР° РјР°С‚СЂРёС†Сѓ Рё Р“Р°СѓСЃСЃРѕРј РЅР°С…РѕРґРёРј РѕР±СЂР°С‚РЅСѓСЋ		for (i = 0; i < n; i++)
 			{
 				for (j = 0; j < n; j++)
 					matrix_res[i][j] = m.Matr[i][j];
 			}
-			for (i = 0; i < n; i++)//создали единичную
+			for (i = 0; i < n; i++)//СЃРѕР·РґР°Р»Рё РµРґРёРЅРёС‡РЅСѓСЋ
 			{
 
 				for (j = n; j < n * 2; j++)
 				{
-					if (j == i + n) //по диагонали 1
+					if (j == i + n) //РїРѕ РґРёР°РіРѕРЅР°Р»Рё 1
 					{
 						matrix_res[i][j] = 1;
 					}
-					else //во всех остальных случаях 0
+					else //РІРѕ РІСЃРµС… РѕСЃС‚Р°Р»СЊРЅС‹С… СЃР»СѓС‡Р°СЏС… 0
 						matrix_res[i][j] = 0;
 				}
 			}
 			T res, cur, karl, roug;
-			for (p = 0; p < n; p++) //метод Гаусса
+			for (p = 0; p < n; p++) //РјРµС‚РѕРґ Р“Р°СѓСЃСЃР°
 			{
-				if (matrix_res[p][p] == 0) //если по диагонали слева есть нулевая, то меняем местами
+				if (matrix_res[p][p] == 0) //РµСЃР»Рё РїРѕ РґРёР°РіРѕРЅР°Р»Рё СЃР»РµРІР° РµСЃС‚СЊ РЅСѓР»РµРІР°СЏ, С‚Рѕ РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё
 				{
 					T zer = matrix_res[p][p], cur;
 					int fl = p;
@@ -525,7 +523,7 @@ Matrix<T, n> obr_matrix(Matrix<T, n> m, T det)
 					{
 						if (fl > p && zer != 0)
 						{
-							for (l = p; l < n * 2; l++) //меняем местами
+							for (l = p; l < n * 2; l++) //swap
 							{
 								cur = matrix_res[p][l];
 								zer = matrix_res[fl][l];
@@ -536,9 +534,9 @@ Matrix<T, n> obr_matrix(Matrix<T, n> m, T det)
 						}
 					}
 				}
-				res = matrix_res[p][p] / matrix_res[p][p]; //чтобы получилась 1
-				cur = matrix_res[p][p]; //запоминаем текущее
-				for (j = p + 1; j < n * 2; j++) //каждый делим
+				res = matrix_res[p][p] / matrix_res[p][p]; //С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёР»Р°СЃСЊ 1
+				cur = matrix_res[p][p]; //Р·Р°РїРѕРјРёРЅР°РµРј С‚РµРєСѓС‰РµРµ
+				for (j = p + 1; j < n * 2; j++) //РєР°Р¶РґС‹Р№ РґРµР»РёРј
 					matrix_res[p][j] = matrix_res[p][j] / cur;
 				for (i = 0; i < n; i++)
 				{
@@ -546,7 +544,7 @@ Matrix<T, n> obr_matrix(Matrix<T, n> m, T det)
 					{
 						for (j = p; j < n * 2; j++)
 						{
-							if (j == p) //меняем местами, если совпало
+							if (j == p) //РјРµРЅСЏРµРј РјРµСЃС‚Р°РјРё, РµСЃР»Рё СЃРѕРІРїР°Р»Рѕ
 								karl = matrix_res[i][j];
 							roug = matrix_res[i][j] - karl * matrix_res[p][j];
 							matrix_res[i][j] = roug;
@@ -554,7 +552,7 @@ Matrix<T, n> obr_matrix(Matrix<T, n> m, T det)
 					}
 				}
 			}
-			//выделяем правую часть, она и есть наша обратная матрица
+			//РІС‹РґРµР»СЏРµРј РїСЂР°РІСѓСЋ С‡Р°СЃС‚СЊ, РѕРЅР° Рё РµСЃС‚СЊ РЅР°С€Р° РѕР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°
 			Matrix<T, n> result;
 			for (i = 0; i < n; i++)
 			{
@@ -574,26 +572,26 @@ Matrix<T, n> obr_matrix(Matrix<T, n> m, T det)
 }
 
 template<typename T, int n>
-void MatrixPlus(Matrix<T, n> a, Matrix<T, n> b) //сумма матриц
+void MatrixPlus(Matrix<T, n> a, Matrix<T, n> b) //СЃСѓРјРјР° РјР°С‚СЂРёС†
 {
 	cout << endl << a << " + " << b << " = " << a + b << endl;
 }
 
 template<typename T, int n>
-void MatrixMinus(Matrix<T, n> a, Matrix<T, n> b) //разность матриц
+void MatrixMinus(Matrix<T, n> a, Matrix<T, n> b) //СЂР°Р·РЅРѕСЃС‚СЊ
 {
 	cout << endl << a << " - " << b << " = " << a - b << endl;
 }
 
 template<typename T, int n>
-void MatrixMultiply(Matrix<T, n> a, Matrix<T, n> b) //умножение матриц
+void MatrixMultiply(Matrix<T, n> a, Matrix<T, n> b) //СѓРјРЅРѕР¶РµРЅРёРµ
 {
 	cout << endl << a << " * " << b << " = " << a * b << endl;
 }
 
 
 
-template<typename T, int n> //массив указателей на шаблонные функции, для операций с матрицами
+template<typename T, int n> //РјР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° С€Р°Р±Р»РѕРЅРЅС‹Рµ С„СѓРЅРєС†РёРё, РґР»СЏ РѕРїРµСЂР°С†РёР№ СЃ РјР°С‚СЂРёС†Р°РјРё
 void(*masMatrixOperations[MSIZE])(Matrix<T, n> a, Matrix<T, n> b) {
 	MatrixPlus,
 	MatrixMinus,
@@ -602,19 +600,19 @@ void(*masMatrixOperations[MSIZE])(Matrix<T, n> a, Matrix<T, n> b) {
 };
 
 template<typename T, int n>
-void subMatrixMenu(Matrix<T, n> &a, Matrix<T, n> &b) //одменю для работы с выбранным типом
+void subMatrixMenu(Matrix<T, n> &a, Matrix<T, n> &b) //РѕРґРјРµРЅСЋ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІС‹Р±СЂР°РЅРЅС‹Рј С‚РёРїРѕРј
 {
 	ClearCin();
 	char choice;
-	cout << "Текущие матрицы:\n" << a << "\nand\n" << b;
-	cout << endl << "[1] Ввести матрицы заново " << endl;
-	cout << endl << "[2] Сложение " << endl;
-	cout << endl << "[3] Вычитание " << endl;
-	cout << endl << "[4] Умножение " << endl;
-	cout << endl << "[5] Определитель " << endl;
-	cout << endl << "[6] Обратная матрица " << endl;
-	cout << endl << "[7] Очистить экран " << endl;
-	cout << endl << "[8] Вернуться на уровень назад " << endl;
+	cout << "РўРµРєСѓС‰РёРµ РјР°С‚СЂРёС†С‹:\n" << a << "\nand\n" << b;
+	cout << endl << "[1] Р’РІРµСЃС‚Рё РјР°С‚СЂРёС†С‹ Р·Р°РЅРѕРІРѕ " << endl;
+	cout << endl << "[2] РЎР»РѕР¶РµРЅРёРµ " << endl;
+	cout << endl << "[3] Р’С‹С‡РёС‚Р°РЅРёРµ " << endl;
+	cout << endl << "[4] РЈРјРЅРѕР¶РµРЅРёРµ " << endl;
+	cout << endl << "[5] РћРїСЂРµРґРµР»РёС‚РµР»СЊ " << endl;
+	cout << endl << "[6] РћР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р° " << endl;
+	cout << endl << "[7] РћС‡РёСЃС‚РёС‚СЊ СЌРєСЂР°РЅ " << endl;
+	cout << endl << "[8] Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СѓСЂРѕРІРµРЅСЊ РЅР°Р·Р°Рґ " << endl;
 	cout << ">> ";
 	cin >> choice;
 	if (choice - '0' > 1 && choice - '0' < 5)
@@ -624,34 +622,34 @@ void subMatrixMenu(Matrix<T, n> &a, Matrix<T, n> &b) //одменю для работы с выбра
 		(*masMatrixOperations<T, n>[index])(a, b);
 		system("pause");
 	}
-	else if (choice == '1') //ввести заново
+	else if (choice == '1') //РІРІРµСЃС‚Рё Р·Р°РЅРѕРІРѕ
 	{
 		cin >> a;
 		cin >> b;
 
 	}
-	else if (choice == '5' || choice == '6')//определитель или обратная матрица
+	else if (choice == '5' || choice == '6')//РѕРїСЂРµРґРµР»РёС‚РµР»СЊ РёР»Рё РѕР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°
 	{
-		cout << "Выберите нужную матрицу (1 или 2)" << endl << ">> ";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РЅСѓР¶РЅСѓСЋ РјР°С‚СЂРёС†Сѓ (1 РёР»Рё 2)" << endl << ">> ";
 		char ch;
 		cin >> ch;
 		if (ch == '1')
 		{
 			cout << "det = " << determin(a)<<endl;
 			if (choice == '6')
-				cout << "Обратная матрица: " << obr_matrix(a, determin(a));
+				cout << "РћР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°: " << obr_matrix(a, determin(a));
 		}
 		if (ch == '2')
 		{
 			cout << "det = " << determin(b)<<endl;
 			if (choice == '6')
-				cout << "Обратная матрица: " << obr_matrix(b, determin(b));
+				cout << "РћР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°: " << obr_matrix(b, determin(b));
 		}
 		system("pause");
 	}
-	else if (choice == '7') //очистка
+	else if (choice == '7') 
 		system("cls");
-	else if (choice == '8') //выход
+	else if (choice == '8') 
 		return;
 	subMatrixMenu(a, b);
 }
@@ -659,30 +657,26 @@ void subMatrixMenu(Matrix<T, n> &a, Matrix<T, n> &b) //одменю для работы с выбра
 void MatrixMenu()
 {
 	char typeMatrix;
-	cout <<endl<< "[1] Целочисленная матрица " << endl;
-	cout << "[2] Матрица из чисел с плавающей точкой" << endl;
-	cout << "[3] Матрица из целочисленных дробей" << endl;
-	cout << "[4] Матрица из дробей, состоящих из чисел с плавающей точкой" << endl;
-	cout << "[5] Вернуться на уровень назад" << endl;
+	cout <<endl<< "[1] Р¦РµР»РѕС‡РёСЃР»РµРЅРЅР°СЏ РјР°С‚СЂРёС†Р° " << endl;
+	cout << "[2] РњР°С‚СЂРёС†Р° РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№" << endl;
+	cout << "[3] РњР°С‚СЂРёС†Р° РёР· С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… РґСЂРѕР±РµР№" << endl;
+	cout << "[4] РњР°С‚СЂРёС†Р° РёР· РґСЂРѕР±РµР№, СЃРѕСЃС‚РѕСЏС‰РёС… РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№" << endl;
+	cout << "[5] Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° СѓСЂРѕРІРµРЅСЊ РЅР°Р·Р°Рґ" << endl;
 
 	cout << ">> ";
 	cin >> typeMatrix;	
 	ClearCin();
-	if (typeMatrix=='5') //выход
+	if (typeMatrix=='5') //РІС‹С…РѕРґ
 	{
 		return;
 	}
-	else if (typeMatrix - '0' > 0 && typeMatrix - '0' < 5) //в пределах допустимых типов
+	else if (typeMatrix - '0' > 0 && typeMatrix - '0' < 5) //РІ РїСЂРµРґРµР»Р°С… РґРѕРїСѓСЃС‚РёРјС‹С… С‚РёРїРѕРІ
 	{
 		const int sizeMatrix = 3;
-
-		//const int *sizeptr = &sizeMatrix;
-		//int * pi = const_cast<int*>(&sizeMatrix);	//Снятие const с переменной, на которую указывает pi
-		//*pi) = sizeM;
-		cout << "По умолчанию матрицы размер 3*3! "<<endl;
+		cout << "РњР°С‚СЂРёС†Р° СЂР°Р·РјРµСЂР° 3*3! "<<endl;
 		switch (typeMatrix)
 		{
-		case '1': //матрица целочисленная
+		case '1': //РјР°С‚СЂРёС†Р° С†РµР»РѕС‡РёСЃР»РµРЅРЅР°СЏ
 		{
 			
 			Matrix<int, sizeMatrix> MInt1, MInt2;
@@ -691,7 +685,7 @@ void MatrixMenu()
 			subMatrixMenu(MInt1, MInt2);
 			break;
 		}
-		case '2': //Матрица из чисел с плавающей точкой
+		case '2': //РњР°С‚СЂРёС†Р° РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№
 		{
 			
 			Matrix<double, sizeMatrix> MFloat1, MFloat2;
@@ -700,7 +694,7 @@ void MatrixMenu()
 			subMatrixMenu(MFloat1, MFloat2);
 			break;
 		}
-		case '3': //матрица из дробей
+		case '3': //РјР°С‚СЂРёС†Р° РёР· РґСЂРѕР±РµР№
 		{
 			
 			Matrix<Frac<int>, sizeMatrix> MFracInt1, MFracInt2;
@@ -709,7 +703,7 @@ void MatrixMenu()
 			subMatrixMenu(MFracInt1, MFracInt2);
 			break;
 		}
-		case '4': //Матрица из дробей, состоящих из чисел с плавающей точкой
+		case '4': //РњР°С‚СЂРёС†Р° РёР· РґСЂРѕР±РµР№, СЃРѕСЃС‚РѕСЏС‰РёС… РёР· С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№
 		{
 		
 			Matrix<Frac<float>, sizeMatrix> MFracFloat1, MFracFloat2;
@@ -721,6 +715,6 @@ void MatrixMenu()
 		}
 	}
 
-	MatrixMenu(); //снова вызываем менюшку
+	MatrixMenu(); //СЃРЅРѕРІР° РІС‹Р·С‹РІР°РµРј РјРµРЅСЋС€РєСѓ
 
 }
