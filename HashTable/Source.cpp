@@ -15,12 +15,12 @@ TEMPL
 void FuncHistory(HashTable<Tvalue> &hashT)
 {
 	char ch;
-	cout << "Îòìåíèòü ïîñëåäíèå èçìåíåíèÿ? (y/n) ";
+	cout << "ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ? (y/n) ";
 	cin >> ch;
 	if (ch == 'y')
 	{
 		int col;
-		cout << "Óêàæèòå êîëè÷åñòâî óäàëÿåìûõ èçìåíåíèé ";
+		cout << "Ð£ÐºÐ°Ð¶Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ´Ð°Ð»ÑÐµÐ¼Ñ‹Ñ… Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹ ";
 		cin >> col;
 		UndoHist(hashT, col);
 	}
@@ -30,7 +30,7 @@ void FuncHistory(HashTable<Tvalue> &hashT)
 TEMPL
 void FuncLIstHash(HashTable<Tvalue> &hashT)
 {
-	cout << "Òåêóùàÿ õåø-òàáëèöà:" << endl;
+	cout << "Ð¢ÐµÐºÑƒÑ‰Ð°Ñ Ñ…ÐµÑˆ-Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ð°: " << endl;
 	cout << hashT;
 	cout << endl;
 }
@@ -39,12 +39,12 @@ TEMPL
 void FuncChangeHash(HashTable<Tvalue> &hashT)
 {
 	char ch;
-	cout << endl << "Õîòèòå èçìåíèòü êàêóþ-ëèáî çàïèñü? (y/n) ";
+	cout << endl << "Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÐºÐ°ÐºÑƒÑŽ-Ð»Ð¸Ð±Ð¾ Ð·Ð°Ð¿Ð¸ÑÑŒ? (y/n) ";
 	cin >> ch;
 	if (ch == 'y')
 	{
 		string val;
-		cout << "Ââåäèòå çàïèñü, êîòîðóþ íåîáõîäèìî èçìåíèòü ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð°Ð¿Ð¸ÑÑŒ, ÐºÐ¾Ñ‚Ð¾Ñ€ÑƒÑŽ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ: ";
 		cin >> val;
 		hashT.Change(Hash(val));
 	}
@@ -53,12 +53,12 @@ void FuncChangeHash(HashTable<Tvalue> &hashT)
 void FuncChangeHash(HashTable<phoneBook> &hashT)
 {
 	char ch;
-	cout <<endl<< "Õîòèòå èçìåíèòü êàêóþ-ëèáî çàïèñü? (y/n) ";
+	cout <<endl<< "Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÐºÐ°ÐºÑƒÑŽ-Ð»Ð¸Ð±Ð¾ Ð·Ð°Ð¿Ð¸ÑÑŒ? (y/n) ";
 	cin >> ch;
 	if (ch == 'y')
 	{
 		string val;
-		cout << "Ââåäèòå email äëÿ çàïèñè, êîòîðóþ íåîáõîäèìî èçìåíèòü ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ email Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸, ÐºÐ¾Ñ‚Ð¾Ñ€ÑƒÑŽ Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ";
 		cin >> val;
 		hashT.Change( Hash(val));
 	}
@@ -68,14 +68,14 @@ TEMPL
 void FuncInsertHash(HashTable<Tvalue> &hashT)
 {
 	char ch;
-	cout << endl << "Õîòèòå äîáàâèòü çàïèñü? (y/n) ";
+	cout << endl << "Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð·Ð°Ð¿Ð¸ÑÑŒ? (y/n) ";
 	cin >> ch;
 	if (ch == 'y')
 	{
 		Tvalue a;
 		cin >> a;
 		hashT.Insert(Hash(a), a);
-		cout << "Äîáàâëåíî!" << endl;
+		cout << "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¾!" << endl;
 	}
 
 }
@@ -84,12 +84,12 @@ TEMPL
 void FuncFindHash(HashTable<Tvalue> &hashT)
 {
 	char ch;
-	cout << endl << "Õîòèòå íàéòè êàêóþ-ëèáî çàïèñü? (y/n) ";
+	cout << endl << "Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð½Ð°Ð¹Ñ‚Ð¸ ÐºÐ°ÐºÑƒÑŽ-Ð»Ð¸Ð±Ð¾ Ð·Ð°Ð¿Ð¸ÑÑŒ? (y/n) ";
 	cin >> ch;
 	if (ch == 'y')
 	{
 		string str;
-		cout << "Ââåäèòå èñêîìóþ ñòðîêó: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸ÑÐºÐ¾Ð¼ÑƒÑŽ ÑÑ‚Ñ€Ð¾ÐºÑƒ: ";
 		cin >> str;
 		SearchArg(hashT, str);
 
@@ -99,7 +99,7 @@ void FuncFindHash(HashTable<Tvalue> &hashT)
 void FuncFindHash(HashTable<phoneBook> &hashT)
 {
 	char ch;
-	cout << endl << "Õîòèòå íàéòè êàêóþ-ëèáî çàïèñü? (y/n) ";
+	cout << endl << "Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð½Ð°Ð¹Ñ‚Ð¸ ÐºÐ°ÐºÑƒÑŽ-Ð»Ð¸Ð±Ð¾ Ð·Ð°Ð¿Ð¸ÑÑŒ? (y/n) ";
 	cin >> ch;
 	if (ch == 'y')
 	{
@@ -117,7 +117,7 @@ void FuncFindHash(HashTable<phoneBook> &hashT)
 			if (num < SIZE)
 			{
 				string str;
-				cout << "Ââåäèòå èñêîìóþ ñòðîêó: ";
+				cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸ÑÐºÐ¾Ð¼ÑƒÑŽ ÑÑ‚Ñ€Ð¾ÐºÑƒ: ";
 				cin >> str;
 				SearchArg(hashT, str, num);
 			}
@@ -139,12 +139,12 @@ void(*MasFunc[SIZE])(HashTable<Tvalue> &hashT) {
 TEMPL
 void Menu(HashTable<Tvalue> &hashT)
 {
-	cout << "[1] Âñòàâèòü íîâóþ çàïèñü" << endl;
-	cout << "[2] Èçìåíèòü çàïèñü" << endl;
-	cout << "[3] Íàéòè çàïèñü" << endl;
-	cout << "[4] Îòìåíèòü ïîñëåäíèå èçìåíåíèÿ" << endl;
-	cout << "[5] Âûâåñòè õåø-òàáëèöó" << endl;
-	cout << "[6] Âûéòè" << endl;
+	cout << "[1] Ð’ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ Ð½Ð¾Ð²ÑƒÑŽ Ð·Ð°Ð¿Ð¸ÑÑŒ" << endl;
+	cout << "[2] Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð·Ð°Ð¿Ð¸ÑÑŒ" << endl;
+	cout << "[3] ÐÐ°Ð¹Ñ‚Ð¸ Ð·Ð°Ð¿Ð¸ÑÑŒ" << endl;
+	cout << "[4] ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ" << endl;
+	cout << "[5] Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ Ñ…ÐµÑ‰-Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ" << endl;
+	cout << "[6] Ð’Ñ‹Ð¹Ñ‚Ð¸" << endl;
 	char ch;
 	cin >> ch;
 	if (isdigit(ch))
@@ -179,11 +179,11 @@ int main()
 	setlocale(0, "Rus");
 	char ch;
 	
-	cout << "Îòêðûòü òåëåôîííóþ êíèãó? (y/n) ";
+	cout << "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð½ÑƒÑŽ ÐºÐ½Ð¸Ð³Ñƒ? (y/n) ";
 	cin >> ch;
 	if (ch == 'y')
 	{
-		cout << "Îòêðûòà òåëåôîííàÿ êíèãà" << endl;
+		cout << "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚Ð° Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð½Ð°Ñ ÐºÐ½Ð¸Ð³Ð°" << endl;
 		HashTable<phoneBook> hashT;
 		OpenFile(hashT);
 		Menu(hashT);
@@ -191,7 +191,7 @@ int main()
 	}
 	else
 	{
-		cout << "Îòêðûòà îáû÷íàÿ õåø-òàáëèöà" << endl;
+		cout << "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚Ð° Ð¾Ð±Ñ‹Ñ‡Ð½Ð°Ñ Ñ…ÐµÑˆ-Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ð°" << endl;
 		HashTable<string> hashT;
 		OpenFile(hashT);
 		Menu(hashT);
