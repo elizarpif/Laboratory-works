@@ -5,6 +5,7 @@
 #include <QTreeWidgetItem>
 #include "vectors.h"
 #include <qcustomplot.h>
+
 namespace Ui {
 class MainWindow;
 }
@@ -32,17 +33,16 @@ public:
 
     void FileSave();
 
+
 private slots:
-    void on_equiv_edit_textEdited(const QString &arg1);
 
     void on_spin_min_valueChanged(int arg1);
 
     void on_spin_max_valueChanged(int arg1);
 
     void on_pushButton_clicked();
-    void slotCustomMenuRequested(QPoint pos);
 
-    //void slotCustomMenuPlot(QPoint pos);
+    void slotCustomMenuRequested(QPoint pos);
 
     void slotAddRecord();
 
@@ -50,17 +50,13 @@ private slots:
 
     void on_treeCurves_itemClicked(QTreeWidgetItem *item, int column);
 
-    void on_treeCurves_itemDoubleClicked(QTreeWidgetItem *item, int column);
-
     void showHelp();
 
     void on_pushButton_2_clicked();
 
-    void on_rotate90_clicked();
-
-    //void graphClicked(QCPAbstractPlottable *plottable, int dataIndex);
 
 private:
+
     Ui::MainWindow *ui;
     int max, min;
     QDialog *f2;
