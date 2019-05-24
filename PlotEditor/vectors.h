@@ -13,20 +13,27 @@ void WholePart(QString &left, bool &minus, double &coef, bool flag);
 
 class Poly
 {
-    int degree=-1;
+    int degree = -1;
     vector<pair<double, QString>> vec;
+
 public:
+
     Poly operator+(Poly vect);
     Poly operator* (Poly vect);
     Poly operator*(int coef);
+
     friend Poly toGeneral(QString &input);
-    void print();
+
     void Init();
     void Rotate90();
+
     double getPer(int i);
     QString getVariable(int i);
+
     friend ostream&operator<<(ostream&os, Poly&p);
+
     void Push(pair<double, QString> p);
+
     Poly( vector<pair<double, QString>> v, int d): vec(v), degree(d) {}
     Poly(){}
 
